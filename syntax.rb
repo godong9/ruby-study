@@ -33,3 +33,49 @@ if true
     'Hello'
 end
 
+puts "=========="
+
+
+# 다양한 대입식
+a, b = 1, 2
+
+puts a
+puts b
+
+a, b = [1, 2, 3]
+
+puts a
+puts b
+
+a, *b = [1, 2, 3]
+
+a
+b # => [2, 3]
+
+c, d, e = [1, 2]
+puts c
+puts e
+
+
+a = 'a'
+b = 'b'
+
+a, b = b, a
+
+puts a
+puts b
+
+a = 1
+a += 1
+
+b ||= 2 # => b = b || 2
+
+
+begin
+    1 / 0
+rescue ZeroDivisionError
+    puts '에러'
+end
+
+
+
