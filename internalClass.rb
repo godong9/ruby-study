@@ -72,7 +72,7 @@ puts vacation.end
 abc = ('a'..'c')
 
 abc.each do |c|
-    puts c
+  puts c
 end
 
 puts '======'
@@ -103,16 +103,16 @@ puts '======'
 
 # Proc
 greeter = Proc.new { |name|
-    puts "Hello, #{name}!"
+  puts "Hello, #{name}!"
 }
 
 greeter.call 'Proc'
 greeter.call 'Ruby'
 
 format = Proc.new { |name|
-    name = name.capitalize
+  name = name.capitalize
 
-    puts "Hello, #{name}!"
+  puts "Hello, #{name}!"
 }
 
 format.call('alice')

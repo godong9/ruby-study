@@ -72,3 +72,42 @@ puts people.map {|person| person.upcase }.inspect
 
 
 puts people.map(&:upcase).inspect
+
+
+def write_with_lock
+  File.open 'time.txt', 'w' do |f|
+    f.flock File::LOCK_EX
+
+    yield f
+
+    f.flock File::LOCK_UN
+  end
+end
+
+write_with_lock do |f|
+  f.puts Time.now
+end
+
+
+def keywords(alice: nil, bob: nil)
+  {alice: alice, bob: bob}
+end
+
+keywords alice: '앨리스', bob: '밥'
+
+
+def keywords_with_options(alice: nil, bob: nil, **others)
+  {alice: alice, bob: bob, others: others}
+end
+
+keywords_with_options alice: '앨리스', bob: '밥', charlie: '찰리'
+
+
+puts Time::now
+
+
+# alias
+alias greet puts
+
+greet 'hi'
+
