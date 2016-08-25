@@ -54,3 +54,25 @@ add = Proc.new { |x, y| x + y }
 inc = Proc.new { |y| add.(1, y) }
 
 inc.(1)
+
+
+lambda_obj = lambda { 1 }
+
+p lambda_obj.class
+p lambda_obj.call
+
+inc_labmda = ->(x) { x + 1 }
+
+p inc_labmda.(1)
+
+
+
+def wrap_method(proc_or_lambda)
+  x = proc_or_lambda.call(1)
+  x.to_s
+end
+
+p wrap_method proc { |x| next x; x.succ }
+p wrap_method lambda { |x| next x; x.succ }
+
+
